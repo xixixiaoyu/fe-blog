@@ -9,6 +9,9 @@ export const juejinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" hei
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5875 6.77268L21.8232 3.40505L17.5875 0.00748237L17.5837 0L13.3555 3.39757L17.5837 6.76894L17.5875 6.77268ZM17.5863 17.3955H17.59L28.5161 8.77432L25.5526 6.39453L17.59 12.6808H17.5863L17.5825 12.6845L9.61993 6.40201L6.66016 8.78181L17.5825 17.3992L17.5863 17.3955ZM17.5828 23.2891L17.5865 23.2854L32.2133 11.7456L35.1768 14.1254L28.5238 19.3752L17.5865 28L0.284376 14.3574L0 14.1291L2.95977 11.7531L17.5828 23.2891Z" fill="#1E80FF"/>
 </svg>`
 
+const sortSep = '_'
+const Num = n => parseInt(n, 10)
+
 function getFile(pathname: string) {
   const p = path.resolve(__dirname, '../', pathname)
   if (!fs.existsSync(p)) return []
@@ -18,17 +21,17 @@ function getFile(pathname: string) {
     .sort((a, b) => {
       let n1, n2
       if (a.includes('0')) {
-        n1 = parseInt(a.replace('0', '').substring(0, a.indexOf('_')), 10)
+        n1 = Num(a.replace('0', '').slice(0, a.indexOf(sortSep)))
       }
       if (b.includes('0')) {
-        n2 = parseInt(b.replace('0', '').substring(0, b.indexOf('_')), 10)
+        n2 = Num(b.replace('0', '').slice(0, b.indexOf(sortSep)))
       }
       if (a === 'index.md') return 1
       return n1 - n2
     })
   return dir.map(dir => {
-    const formatDir = dir.replace('.md', '')
-    const text = formatDir.slice(formatDir.indexOf('_') + 1)
+    const formatDir = dir.slice(0, dir.lastIndexOf('.'))
+    const text = formatDir.slice(formatDir.indexOf(sortSep) + 1)
     return {
       text,
       link: `/${pathname}/${formatDir}`
