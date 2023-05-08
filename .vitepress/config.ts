@@ -28,7 +28,13 @@ export default defineConfig({
       { text: '前端路线', link: 'https://roadmap.shengxinjing.cn/' }
     ],
 
+    search: {
+      provider: 'local'
+    },
+
     sidebar,
+
+    outline: 3,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' },
@@ -51,6 +57,7 @@ export default defineConfig({
         'https://github.com/shengxinjing/fe-advanced-interview/tree/main/docs/:path',
       text: '编辑页面'
     },
+    
     footer: {
       message: 'May all encounters not be in vain'
     }
