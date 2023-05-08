@@ -9,36 +9,61 @@ export const juejinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" hei
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.5875 6.77268L21.8232 3.40505L17.5875 0.00748237L17.5837 0L13.3555 3.39757L17.5837 6.76894L17.5875 6.77268ZM17.5863 17.3955H17.59L28.5161 8.77432L25.5526 6.39453L17.59 12.6808H17.5863L17.5825 12.6845L9.61993 6.40201L6.66016 8.78181L17.5825 17.3992L17.5863 17.3955ZM17.5828 23.2891L17.5865 23.2854L32.2133 11.7456L35.1768 14.1254L28.5238 19.3752L17.5865 28L0.284376 14.3574L0 14.1291L2.95977 11.7531L17.5828 23.2891Z" fill="#1E80FF"/>
 </svg>`
 
-export function getDirctSidebar(pathname: string) {
+function getFile(pathname: string) {
   const p = path.resolve(__dirname, '../', pathname)
   if (!fs.existsSync(p)) return []
-  const dirct = fs
+  const dir = fs
     .readdirSync(p)
     .filter(v => v.endsWith('.md'))
     .sort((a, b) => {
-      if (a === 'index.md') return 1
-      if (a[0] !== '2') return 1
-      return a > b ? -1 : 1
-    })
-  return dirct.map(dir => {
-    const file = fs.readFileSync(path.resolve(p, dir)).toString()
-    let text = dir
-    let lines = file.split('\n')
-    const line = lines.shift() as string
-    if (line.startsWith('# ')) {
-      text = line.replace('# ', '')
-    } else {
-      if (line.startsWith('---')) {
-        const index = lines.findIndex(v => v.startsWith('---'))
-        lines = lines.slice(index + 1).filter(v => v)
-        if (lines[0].startsWith('# ')) {
-          text = lines[0].replace('# ', '')
-        }
+      let n1, n2
+      if (a.includes('0')) {
+        n1 = parseInt(a.replace('0', '').substring(0, a.indexOf('_')), 10)
       }
-    }
+      if (b.includes('0')) {
+        n2 = parseInt(b.replace('0', '').substring(0, b.indexOf('_')), 10)
+      }
+      if (a === 'index.md') return 1
+      return n1 - n2
+    })
+  return dir.map(dir => {
+    const formatDir = dir.replace('.md', '')
+    const text = formatDir.slice(formatDir.indexOf('_') + 1)
     return {
       text,
-      link: `/${pathname}/${dir.replace('.md', '')}`
+      link: `/${pathname}/${formatDir}`
     }
   })
+}
+
+function getDirectory(directoryPath) {
+  const filNames: string[] = []
+
+  const files = fs.readdirSync(path.resolve(__dirname, '../', directoryPath), {
+    withFileTypes: true
+  })
+
+  files.forEach(file => {
+    if (file.isDirectory()) {
+      filNames.push(file.name)
+    }
+  })
+
+  return filNames
+}
+
+export function getSidebar(directoryPath) {
+  const siderbar: any[] = []
+
+  const directorys = getDirectory(directoryPath)
+
+  directorys.forEach(dir => {
+    siderbar.push({
+      text: dir,
+      collapsed: false,
+      items: getFile(directoryPath + '/' + dir)
+    })
+  })
+
+  return siderbar
 }

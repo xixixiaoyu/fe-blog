@@ -13,7 +13,7 @@ export default defineConfig({
     nav: [
       {
         text: '精读书籍',
-        link: '/books/你不知道的JavaScript上卷（第一部分）',
+        link: '/books/你不知道的JavaScript/你不知道的JavaScript上卷（第一部分）',
         items: [
           { text: 'Item A', link: '/item-1' },
           { text: 'Item B', link: '/item-2' },
