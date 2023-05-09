@@ -12,61 +12,61 @@ export const juejinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" hei
 const sortSep = '_'
 const Num = n => parseInt(n, 10)
 
-function getFile(pathname: string) {
-  const p = path.resolve(__dirname, '../', pathname)
-  if (!fs.existsSync(p)) return []
-  const dir = fs
-    .readdirSync(p)
-    .filter(v => v.endsWith('.md'))
-    .sort((a, b) => {
-      let n1, n2
-      if (a.includes('0')) {
-        n1 = Num(a.replace('0', '').slice(0, a.indexOf(sortSep)))
-      }
-      if (b.includes('0')) {
-        n2 = Num(b.replace('0', '').slice(0, b.indexOf(sortSep)))
-      }
-      if (a === 'index.md') return 1
-      return n1 - n2
-    })
-  return dir.map(dir => {
-    const formatDir = dir.slice(0, dir.lastIndexOf('.'))
-    const text = formatDir.slice(formatDir.indexOf(sortSep) + 1)
-    return {
-      text,
-      link: `/${pathname}/${formatDir}`
-    }
-  })
+export function getFile(pathname: string) {
+	const p = path.resolve(__dirname, '../', pathname)
+	if (!fs.existsSync(p)) return []
+	const dir = fs
+		.readdirSync(p)
+		.filter(v => v.endsWith('.md'))
+		.sort((a, b) => {
+			let n1, n2
+			if (a.includes('0')) {
+				n1 = Num(a.replace('0', '').slice(0, a.indexOf(sortSep)))
+			}
+			if (b.includes('0')) {
+				n2 = Num(b.replace('0', '').slice(0, b.indexOf(sortSep)))
+			}
+			if (a === 'index.md') return 1
+			return n1 - n2
+		})
+	return dir.map(dir => {
+		const formatDir = dir.slice(0, dir.lastIndexOf('.'))
+		const text = formatDir.slice(formatDir.indexOf(sortSep) + 1)
+		return {
+			text,
+			link: `/${pathname}/${formatDir}`,
+		}
+	})
 }
 
 function getDirectory(directoryPath) {
-  const filNames: string[] = []
+	const filNames: string[] = []
 
-  const files = fs.readdirSync(path.resolve(__dirname, '../', directoryPath), {
-    withFileTypes: true
-  })
+	const files = fs.readdirSync(path.resolve(__dirname, '../', directoryPath), {
+		withFileTypes: true,
+	})
 
-  files.forEach(file => {
-    if (file.isDirectory()) {
-      filNames.push(file.name)
-    }
-  })
+	files.forEach(file => {
+		if (file.isDirectory()) {
+			filNames.push(file.name)
+		}
+	})
 
-  return filNames
+	return filNames
 }
 
-export function getSidebar(directoryPath) {
-  const siderbar: any[] = []
+export function getFolderSidebar(directoryPath) {
+	const sidebar: any[] = []
 
-  const directorys = getDirectory(directoryPath)
+	const directories = getDirectory(directoryPath)
 
-  directorys.forEach(dir => {
-    siderbar.push({
-      text: dir,
-      collapsed: false,
-      items: getFile(directoryPath + '/' + dir)
-    })
-  })
+	directories.forEach(dir => {
+		sidebar.push({
+			text: dir,
+			collapsed: false,
+			items: getFile(directoryPath + '/' + dir),
+		})
+	})
 
-  return siderbar
+	return sidebar
 }
