@@ -8,9 +8,8 @@ export default defineConfig({
 	base: '/fe-blog-website/',
 	title: 'web全栈体系',
 	description: 'A VitePress Site',
-	locales: {
-		root: { label: '简体中文', lang: 'zh-CN' },
-	},
+	lastUpdated: true,
+
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 		logo: 'https://p3-passport.byteimg.com/img/user-avatar/f00ed7cb67569c31d1f314fda68d87b4~180x180.awebp',
@@ -33,18 +32,18 @@ export default defineConfig({
 		sidebarMenuLabel: '归档',
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+			{ icon: 'github', link: 'https://github.com/xixixiaoyu' },
 			{
 				icon: {
 					svg: juejinSvg,
 				},
-				link: 'https://space.bilibili.com/26995758',
+				link: 'https://juejin.cn/user/1530130204207822',
 			},
 			{
 				icon: {
 					svg: biliSvg,
 				},
-				link: 'https://space.bilibili.com/26995758',
+				link: 'https://space.bilibili.com/145679856?spm_id_from=333.1007.0.0',
 			},
 		],
 		lastUpdatedText: 'Updated Date',
