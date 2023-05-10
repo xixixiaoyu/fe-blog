@@ -27,9 +27,9 @@ export default defineConfig({
 			next: '下一篇',
 		},
 		returnToTopLabel: '返回顶部',
-		outlineTitle: '导航栏',
+		outlineTitle: '本页目录',
 		darkModeSwitchLabel: '外观',
-		sidebarMenuLabel: '归档',
+		sidebarMenuLabel: '菜单',
 
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/xixixiaoyu' },
