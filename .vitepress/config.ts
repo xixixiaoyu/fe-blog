@@ -9,6 +9,15 @@ export default defineConfig({
 	title: 'web全栈体系',
 	description: 'A VitePress Site',
 	lastUpdated: true,
+	head: [
+		[
+			'meta',
+			{
+				name: 'referrer',
+				content: 'no-referrer',
+			},
+		],
+	],
 
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
