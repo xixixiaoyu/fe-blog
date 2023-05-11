@@ -36,7 +36,7 @@ export default defineConfig({
 			next: '下一篇',
 		},
 		returnToTopLabel: '返回顶部',
-		outlineTitle: '本页目录',
+		outlineTitle: '目录',
 		darkModeSwitchLabel: '外观',
 		sidebarMenuLabel: '菜单',
 

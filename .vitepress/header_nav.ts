@@ -1,10 +1,10 @@
 export default [
 	{
 		text: '精读书籍',
-		link: '/books/你不知道的JavaScript/01_你不知道的JavaScript上卷（第一部分）',
+		link: '/books/Vue.js设计与实现/01_1 ~ 3 章框架设计概览',
 	},
-	{ text: 'vue', link: '/vue/01-邂逅Vue3' },
-	{ text: 'react', link: '/vue/' },
+	{ text: '前端框架', link: '/vue/' },
+	{ text: '最佳实践', link: '/best_practice/chapter3/init' },
 	{ text: 'ts', link: '/react/' },
 	{ text: 'js', link: '/source/' },
 	{ text: 'interview', link: '/source/' },
