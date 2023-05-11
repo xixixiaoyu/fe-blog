@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
+import { withPwa } from '@vite-pwa/vitepress'
 import sidebar from './sidebar'
 import nav from './header_nav'
 import { biliSvg, juejinSvg } from './utils'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withPwa(defineConfig({
+	pwa: {},
 	base: '/fe-blog-website/',
 	title: 'web全栈体系',
 	description: 'A VitePress Site',
@@ -65,4 +67,4 @@ export default defineConfig({
 			message: 'May all encounters not be in vain',
 		},
 	},
-})
+}))
