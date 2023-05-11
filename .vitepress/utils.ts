@@ -63,7 +63,7 @@ export function getFolderSidebar(directoryPath) {
 	directories.forEach(dir => {
 		sidebar.push({
 			text: dir,
-			collapsed: false,
+			collapsed: true,
 			items: getFile(directoryPath + '/' + dir),
 		})
 	})
