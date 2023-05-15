@@ -24,7 +24,7 @@
 
 ## DOMO级事件
 
-> 最简单的给元素设置事件监听的方法就是**设置它们的onxxx属性**，像这样:
+> 最简单的给元素设置事件监听的方法就是**设置它们的 onxxx 属性**，像这样:
 
 ```js
 oBox.onclick = function(){
@@ -1134,12 +1134,12 @@ let eventUtil = {
 
 |   表单元素事件   |                            |
 | :--------------: | :------------------------: |
-| <input>.onchange | 内容改变后且焦点离开后触发 |
-| <input>.onfocus  |       获得焦点时触发       |
-|  <input>.onblur  |       失去焦点时触发       |
-| <input>.onselect |  当select下拉框选择后触发  |
-| <form>.onsubmit  |        当表单提交时        |
-|  <form>.onreset  |        当表单重置时        |
+| `<input>`.onchange | 内容改变后且焦点离开后触发 |
+| `<input>`.onfocus  |       获得焦点时触发       |
+|  `<input>`.onblur  |       失去焦点时触发       |
+| `<input>`.onselect |  当select下拉框选择后触发  |
+| `<form>`.onsubmit  |        当表单提交时        |
+|  `<form>`.onreset  |        当表单重置时        |
 
 | 系统事件 |                      |
 | :------: | :------------------: |

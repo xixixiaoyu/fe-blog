@@ -289,7 +289,6 @@ xhr.open("GET", url, true);
 xhr.send();
 ```
 
-![image-20201210195837390](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201210195837390.png)
 
 # 4.POST 请求
 
