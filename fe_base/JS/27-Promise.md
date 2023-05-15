@@ -169,10 +169,6 @@ console.log('这里是同步的');
 
 
 
-![image-20201125233156332](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201125233156332.png)
-
-
-
 [![DdIC6S.png](https://s3.ax1x.com/2020/11/25/DdIC6S.png)](https://imgchr.com/i/DdIC6S)
 
 ```html
