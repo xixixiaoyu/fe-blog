@@ -1,7 +1,7 @@
-import { getFolderSidebar, getFile } from './utils'
+import { getSidebar } from './utils'
 
 export default {
-	'/books': getFolderSidebar('books'),
-	'/algorithm': getFile('algorithm'),
-	'/best_practice': getFolderSidebar('best_practice'),
+	'/books': getSidebar('books'),
+	'/algorithm': getSidebar('algorithm'),
+	'/best_practice': getSidebar('best_practice'),
 }

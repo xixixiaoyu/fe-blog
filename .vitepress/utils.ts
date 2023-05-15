@@ -12,7 +12,7 @@ export const juejinSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="36" hei
 const sortSep = '_'
 const Num = n => parseInt(n, 10)
 
-export function getFile(pathname: string) {
+function getFile(pathname: string) {
 	const p = path.resolve(__dirname, '../', pathname)
 	if (!fs.existsSync(p)) return []
 	const dir = fs
@@ -20,15 +20,16 @@ export function getFile(pathname: string) {
 		.filter(v => v.endsWith('.md'))
 		.sort((a, b) => {
 			let n1, n2
-			if (a.includes('0')) {
+			if (a.startsWith('0')) {
 				n1 = Num(a.replace('0', '').slice(0, a.indexOf(sortSep)))
 			}
-			if (b.includes('0')) {
+			if (b.startsWith('0')) {
 				n2 = Num(b.replace('0', '').slice(0, b.indexOf(sortSep)))
 			}
 			if (a === 'index.md') return 1
 			return n1 - n2
 		})
+
 	return dir.map(dir => {
 		const formatDir = dir.slice(0, dir.lastIndexOf('.'))
 		const text = formatDir.slice(formatDir.indexOf(sortSep) + 1)
@@ -55,7 +56,7 @@ function getDirectory(directoryPath) {
 	return filNames
 }
 
-export function getFolderSidebar(directoryPath) {
+export function getSidebar(directoryPath) {
 	const sidebar: any[] = []
 
 	const directories = getDirectory(directoryPath)
@@ -67,6 +68,11 @@ export function getFolderSidebar(directoryPath) {
 			items: getFile(directoryPath + '/' + dir),
 		})
 	})
+
+	const files = getFile(directoryPath)
+	if (Array.isArray(files) && files.length) {
+		sidebar.push(...files)
+	}
 
 	return sidebar
 }
