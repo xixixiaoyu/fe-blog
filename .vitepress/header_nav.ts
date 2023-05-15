@@ -7,7 +7,7 @@ export default [
 	{ text: '前端框架', link: '/fe_framework/' },
 	{ text: '后端基础', link: '/be_base/' },
 	{ text: '后端框架', link: '/be_frame_work/' },
-	{ text: '面试', link: '/review/' },
 	{ text: '最佳实践', link: '/best_practice/工具函数' },
 	{ text: '算法', link: '/algorithm/01_初识数据结构与算法和栈' },
+	{ text: '面试', link: '/review/' },
 ]
