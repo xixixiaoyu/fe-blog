@@ -11,6 +11,14 @@ export default defineConfig({
 	description: 'A VitePress Site',
 	lastUpdated: true,
 	ignoreDeadLinks: true,
+	// markdown: {
+  //   config: (md) => {
+  //     const render = md.render
+  //     md.render = function (src, env) {
+  //       return `<div v-pre>${render.call(this, src, env)}</div>`
+  //     }
+  //   }
+  // },
 	head: [
 		[
 			'meta',

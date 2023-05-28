@@ -378,10 +378,12 @@ const { query } = url.parse(this.props.location.search, true);
 
 ### 3.state 参数
 
+```jsx
 - 路由链接(携带参数)：`<Link to={{pathname:'/demo/test',state:{name:'tom',age:18}}}>详情</Link>`
 - 注册路由(无需声明，正常注册即可)：`<Route path="/demo/test" component={Test}/>`
 - 接收参数：`this.props.location.state`
 - 备注：刷新也可以保留住参数
+```
 
 ![image-20220121232728649](https://raw.githubusercontent.com/xixixiaoyu/CloundImg2/main/image-20220121232728649.png)
 
