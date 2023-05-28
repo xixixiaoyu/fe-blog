@@ -1,7 +1,7 @@
 export default [
 	{
 		text: '精读书籍',
-		link: '/books/Vue.js设计与实现/01_1 ~ 3 章框架设计概览',
+		link: '/books/Vue.js设计与实现/01_第 1、2、3 章框架设计概览',
 	},
 	{ text: '前端基础', link: '/fe_base/TypeScript/01_初识 TS 类型' },
 	{ text: '前端框架', link: '/fe_framework/Vue/01-邂逅Vue3' },

@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /books/Vue.js设计与实现/02_第 4 章 Vue.js 中的响应系统
+      link: /books/Vue.js设计与实现/01_第 1、2、3 章框架设计概览
     - theme: intro
       text: View on Juejin
-      link: /index
+      link: https://juejin.cn/user/1530130204207822
 
 features:
   - title: 专业前端
