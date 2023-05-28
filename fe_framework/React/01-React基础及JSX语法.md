@@ -136,7 +136,7 @@ const element = <input type="text"/>
 const element = <img src={user.avatarUrl} className="rounded"/>;
 ```
 
-#### 5.内联样式，要用style={{key:value}}的形式去写
+#### 5.内联样式，要用双括号的形式去写
 
 ```jsx
 const element = <span style={{ color: 'white', fontSize: '29px' }}></span>
