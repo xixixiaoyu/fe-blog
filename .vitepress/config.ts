@@ -10,6 +10,7 @@ export default defineConfig({
 	title: 'web全栈体系',
 	description: 'A VitePress Site',
 	lastUpdated: true,
+	ignoreDeadLinks: true,
 	head: [
 		[
 			'meta',
