@@ -8,4 +8,5 @@ export default {
 	'/fe_framework': getSidebar('fe_framework'),
 	'/interview': getSidebar('interview'),
 	'/be_base': getSidebar('be_base'),
+	'/be_framework': getSidebar('be_framework'),
 }

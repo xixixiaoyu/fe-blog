@@ -6,7 +6,7 @@ import { biliSvg, juejinSvg } from './utils'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-	base: '/fe-blog-website/',
+	base: '/',
 	title: 'web全栈体系',
 	description: 'A VitePress Site',
 	lastUpdated: true,
